@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zara - Log In</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;  
+      }
+
+      input {
+        background: transparent;
+      }
+
+      input:focus {
+        background-color: rgb(253, 253, 253);
+        outline: none;
+        border-bottom: 1px solid black;
+      }
+
+      .login-container {
+        width: 400px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .zara-logo {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .login-form input {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #000;
+        font-size: 14px;
+      }
+
+      .login-form input:focus {
+        outline: none;
+        border-bottom: 2px solid #000;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 20px;
+        font-size: 12px;
+        color: #666;
+        text-decoration: none;
+      }
+
+      .login-btn {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .login-btn:hover {
+        background-color: #333;
+      }
+
+      .model-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover; 
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      
+      <img class="zara-logo" src="/visuals/Zara New.svg" />
+      <form class="login-form">
+        <input type="email" id="email" placeholder="EMAIL" required />
+        <input type="password" id="password" placeholder="PASSWORD" required />
+        <a href="#" class="forgot-password">Have you forgotten your password?</a>
+        <button type="submit" class="login-btn">LOG IN</button>
+        <p id="login-message" style="color: red; text-align: center; font-size: 14px;"></p>
+
+      </form>
+    </div>
+    <div>
+      <video loop autoplay muted class="model-image">
+        <source src="/visuals/login_video.mp4" />
+      </video>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".login-form");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const message = document.getElementById("login-message"); 
+      
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+      
+          const validEmail = "devashishlokhande8@gmail.com";
+          const validPassword = "password";
+      
+          if (emailInput.value === validEmail && passwordInput.value === validPassword) {
+            
+            setTimeout(() => {window.location.href = "index.html"; }, 1000);
+          } else {
+            message.style.color = "red";
+            message.textContent = "Wrong email or password!";
+          }
+        });
+      });
+      </script>
+  </body>
+</html>
