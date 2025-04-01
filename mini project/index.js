@@ -11,22 +11,14 @@ document.addEventListener("scroll", function () {
 
 document.addEventListener("scroll", function () {
     let mainText = document.querySelector(".main-text");
-    let scrollPosition = window.scrollY; // Get scroll position
+    let scrollPosition = window.scrollY; 
 
     if (scrollPosition > 100) {
-        mainText.style.top = "78%"; // Moves text below the video
-        mainText.style.color = "black"; // Change text color to black
+        mainText.style.top = "78%"; 
+        mainText.style.color = "black";
     } else {
-        mainText.style.top = "50%"; // Moves it back up when scrolling up
-        mainText.style.color = "rgb(189, 189, 189)"; // Restore original color
+        mainText.style.top = "50%"; 
+        mainText.style.color = "rgb(189, 189, 189)"; 
     }
 });
 
-function handleSearch(event) {
-    if (event.key === "Enter") { 
-        let query = document.getElementById("searchInput").value.trim();
-        if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-        }
-    }
-}
